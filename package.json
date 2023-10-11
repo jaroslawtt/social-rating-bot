@@ -1,0 +1,39 @@
+{
+  "name": "social-rating-bot",
+  "version": "1.0.0",
+  "description": "Bot for social rating audit",
+  "workspaces": [
+    "shared",
+    "server",
+    "client",
+    "build"
+  ],
+  "scripts": {
+    "prettify": "prettier --write \"**/*.{ts,tsx,json,md}\"",
+    "build:shared": "npm run build -w shared",
+    "build:client": "npm run build -w client",
+    "build:server": "npm run build -w server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaroslawtt/social-rating-bot.git"
+  },
+  "keywords": [
+    "bot",
+    "telegram",
+    "social",
+    "rating"
+  ],
+  "author": "jaroslawtt",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.50.0",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2",
+    "tsc-alias": "^1.8.8"
+  },
+  "bugs": {
+    "url": "https://github.com/jaroslawtt/social-rating-bot/issues"
+  },
+  "homepage": "https://github.com/jaroslawtt/social-rating-bot#readme"
+}
