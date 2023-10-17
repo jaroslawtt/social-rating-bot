@@ -2,12 +2,6 @@
   "name": "social-rating-bot",
   "version": "1.0.0",
   "description": "Bot for social rating audit",
-  "workspaces": [
-    "shared",
-    "server",
-    "client",
-    "build"
-  ],
   "scripts": {
     "prettify": "prettier --write \"**/*.{ts,tsx,json,md}\"",
     "build:shared": "npm run build -w shared",
