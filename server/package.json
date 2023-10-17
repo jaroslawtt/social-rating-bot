@@ -5,8 +5,16 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "tsc",
-    "start": "node build/server.js"
+    "migrate": "knex migrate:latest",
+    "build": "tsc && tsc-alias && npm run build:copy",
+    "build:copy": "cp -r package.json build",
+    "build:watch": "tsc -w",
+    "start": "node build/server.js",
+    "start:dev": "node --watch build/server.js",
+    "migrate": "knex migrate:latest",
+    "migrate:dev": "node ./node_modules/knex/bin/cli.js migrate:latest --knexfile ./src/db/knexfile.ts",
+    "migrate:dev:make": "node ./node_modules/knex/bin/cli.js migrate:make -x ts",
+    "migrate:dev:down": "node ./node_modules/knex/bin/cli.js migrate:down --knexfile ./src/db/knexfile.ts"
   },
   "keywords": [
     "api",
@@ -16,12 +24,24 @@
   "author": "jaroslawtt",
   "license": "MIT",
   "dependencies": {
+    "@fastify/swagger": "^8.11.0",
+    "@fastify/swagger-ui": "^1.4.0",
+    "convict": "^6.2.4",
     "dotenv": "^16.3.1",
-    "fastify": "^4.23.2"
+    "fastify": "^4.23.2",
+    "knex": "^3.0.1",
+    "objection": "^3.1.2",
+    "pg": "^8.11.3",
+    "pino": "^8.16.0",
+    "pino-pretty": "^10.2.3",
+    "swagger-jsdoc": "^6.2.8"
   },
   "devDependencies": {
+    "@types/convict": "^6.1.4",
     "@types/node": "^16.11.10",
+    "@types/swagger-jsdoc": "^6.0.1",
     "ts-node": "10.7.0",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.2.2"
   }
 }
